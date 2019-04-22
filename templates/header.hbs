@@ -1,0 +1,19 @@
+<div class="container">
+<header class="header">
+  <div class="logo">
+    {{#link 'help_center'}}
+      <img src="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}">
+    {{/link}}
+  </div>
+  <div class="nav-wrapper">
+    <span class="icon-menu" tabindex="0" role="button" aria-controls="user-nav" aria-expanded="false" aria-label="{{t 'toggle_navigation'}}">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32"><title>uniE91B</title><path d="M30.848 16h-29.696q-0.288 0-0.416 0.16t-0.16 0.416q0 0.256 0.16 0.416t0.416 0.16h29.696q0.288 0 0.448-0.16t0.128-0.416q0-0.256-0.128-0.416t-0.448-0.16v0zM30.848 29.728h-29.696q-0.288 0-0.416 0.16t-0.16 0.384 0.16 0.416 0.416 0.16h29.696q0.288 0 0.448-0.16t0.128-0.416-0.128-0.384-0.448-0.16v0zM1.152 3.424h29.696q0.288 0 0.448-0.16t0.128-0.416q0-0.256-0.128-0.416t-0.448-0.16h-29.696q-0.288 0-0.416 0.16t-0.16 0.416q0 0.288 0.16 0.416t0.416 0.16v0z"></path></svg>
+    </span>
+    <nav class="user-nav" id="user-nav">
+      {{link 'community'}}
+      {{link 'new_request' class='submit-a-request'}}
+    </nav>
+    {{user_info}}
+  </div>
+</header>
+</div>
