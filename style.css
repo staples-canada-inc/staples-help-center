@@ -17,5 +17,5 @@
     font-weight: bold;
 }
 
-@import url("./assets/staples-ds.css");
-@import url("./assets/overrides.css");
+/* @import url("$staples-ds");
+@import url("$overrides-css"); */
