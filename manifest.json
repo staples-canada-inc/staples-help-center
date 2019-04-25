@@ -5,13 +5,20 @@
     "api_version": 1,
     "default_locale": "en-us",
     "settings": [{
-            "label": "assets",
+            "label": "Assets",
             "variables": [{
-                "identifier": "staples_ds",
-                "type": "file",
-                "description": "staples_ds_description",
-                "label": "staples_ds_label"
-            }]
+                    "identifier": "staples_ds",
+                    "type": "file",
+                    "description": "staples_ds_description",
+                    "label": "staples_ds_label"
+                },
+                {
+                    "identifier": "overrides",
+                    "type": "file",
+                    "description": "overrides_description",
+                    "label": "overrides_label"
+                }
+            ]
         },
         {
             "label": "colors_group_label",
