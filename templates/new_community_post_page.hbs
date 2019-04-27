@@ -1,67 +1,74 @@
-<div class="container-divider"></div>
 <div class="container">
-  <nav class="sub-nav">
-    {{breadcrumbs}}
-    {{search submit=false}}
-  </nav>
+    <div class="bg-lightest-grey py-3 mb-5 ">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-12 col-md-9 mb-3 mb-md-0">
+                    {{breadcrumbs}}
+                </div>
+                <div class="col-12 col-md-3">
+                    {{search scoped=settings.scoped_kb_search submit=false class='nav-search ml-md-auto w-90'}}
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <h1 class="form-header">
-    {{t 'what_is_your_post_about'}}
-  </h1>
+    <h1 class="form-header">
+        {{t 'what_is_your_post_about'}}
+    </h1>
 
-  <div class="form">
-    {{#form 'post' class='new_community_post'}}
-      <div class="form-field">
-        {{#required 'title'}}
-          {{label 'title'}}
-        {{else}}
-          {{#label 'title'}}
+    <div class="form">
+        {{#form 'post' class='new_community_post'}}
+        <div class="form-field">
+            {{#required 'title'}}
+            {{label 'title'}}
+            {{else}}
+            {{#label 'title'}}
             {{t 'title_label'}}<span class="optional">({{t 'optional'}})</span>
-          {{/label}}
-        {{/required}}
-        {{input 'title' autofocus=true}}
-        {{#validate 'title'}}
-          <div class="notification notification-error notification-inline">
-            {{error 'title'}}
-          </div>
-        {{/validate}}
-      </div>
+            {{/label}}
+            {{/required}}
+            {{input 'title' autofocus=true}}
+            {{#validate 'title'}}
+            <div class="notification notification-error notification-inline">
+                {{error 'title'}}
+            </div>
+            {{/validate}}
+        </div>
 
-      {{suggestion_list class='suggestion-list'}}
+        {{suggestion_list class='suggestion-list'}}
 
-      <div class="form-field">
-        {{#required 'details'}}
-          {{label 'details'}}
-        {{else}}
-          {{#label 'details'}}
+        <div class="form-field">
+            {{#required 'details'}}
+            {{label 'details'}}
+            {{else}}
+            {{#label 'details'}}
             {{t 'details_label'}}<span class="optional">({{t 'optional'}})</span>
-          {{/label}}
-        {{/required}}
-        {{wysiwyg 'details'}}
-        {{#validate 'details'}}
-          <div class="notification notification-error notification-inline">
-            {{error 'details'}}
-          </div>
-        {{/validate}}
-      </div>
+            {{/label}}
+            {{/required}}
+            {{wysiwyg 'details'}}
+            {{#validate 'details'}}
+            <div class="notification notification-error notification-inline">
+                {{error 'details'}}
+            </div>
+            {{/validate}}
+        </div>
 
-      <div class="form-field">
-        {{#required 'topic'}}
-          {{label 'topic'}}
-        {{else}}
-          {{#label 'topic'}}
+        <div class="form-field">
+            {{#required 'topic'}}
+            {{label 'topic'}}
+            {{else}}
+            {{#label 'topic'}}
             {{t 'topic_label'}}<span class="optional">({{t 'optional'}})</span>
-          {{/label}}
-        {{/required}}
-        {{select 'topic'}}
-        {{#validate 'topic'}}
-          <div class="notification notification-error notification-inline">
-            {{error 'topic'}}
-          </div>
-        {{/validate}}
-      </div>
+            {{/label}}
+            {{/required}}
+            {{select 'topic'}}
+            {{#validate 'topic'}}
+            <div class="notification notification-error notification-inline">
+                {{error 'topic'}}
+            </div>
+            {{/validate}}
+        </div>
 
-      <footer>{{input type='submit'}}</footer>
-    {{/form}}
-  </div>
+        <footer>{{input type='submit'}}</footer>
+        {{/form}}
+    </div>
 </div>

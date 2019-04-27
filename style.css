@@ -1,21 +1,207 @@
+/* 
+This file is used to style markup that zendesk puts into their themes that cannot be accessed through a template file.
+The design system styles live in assets/staples_ds.css
+*/
+
 /* TT Norms */
 @font-face {
     font-family: "TT Norms Regular";
-    src: url("./assets/tt_norms_regular-webfont.woff") format("woff"), url("./assets/tt_norms_regular-webfont.woff2") format("woff2") !important;
+    src: url($assets-tt_norms_regular-webfont-woff) format("woff"), url($assets-tt_norms_regular-webfont-woff2) format("woff2");
     font-weight: normal;
 }
 
 @font-face {
     font-family: "TT Norms Medium";
-    src: url("./assets/tt_norms_medium-webfont.woff") format("woff"), url("./assets/tt_norms_medium-webfont.woff2") format("woff2") !important;
+    src: url($assets-tt_norms_medium-webfont-woff) format("woff"), url($assets-tt_norms_medium-webfont-woff2) format("woff2");
     font-weight: medium;
 }
 
 @font-face {
     font-family: "TT Norms Bold";
-    src: url("./assets/tt_norms_bold-webfont.woff") format("woff"), url("./assets/tt_norms_bold-webfont.woff2") format("woff2") !important;
+    src: url($assets-tt_norms_bold-webfont-woff) format("woff"), url($assets-tt_norms_bold-webfont-woff2) format("woff2");
     font-weight: bold;
 }
 
-/* @import url("$staples-ds");
-@import url("$overrides-css"); */
+.user-info #user-name{
+  color: #fff;
+}
+#user-nav:after {
+    display: none;
+}
+
+#user-avatar {
+    border-radius: 50%;
+    width: 30px;
+    margin-right: 10px;
+}
+
+#user>div.btn.with-image.dropdown-toggle {
+    background: transparent;
+    border: 0px;
+    padding: 0px;
+    min-width: 0px;
+
+}
+
+#user-dropdown {
+    left: -62px;
+}
+
+.search-wrapper {
+    background-image: url('$homepage_background_image');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.dropdown-toggle::after{
+  color: #fff;
+  margin-bottom: -4px;
+}
+
+
+[type="search"]{
+  display: block;
+  width: 100%;
+  height: calc(1.6875rem + 2px);
+  padding: 0.625rem 0.625rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 0.5;
+  color: #444444;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #747679;
+  border-radius: 0px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+}
+[type="search"]:focus{
+  border: 1px solid #444;
+  outline: none;
+    outline-offset: -2px;
+  -webkit-appearance: none !important;
+}
+
+.sections{
+  flex-flow: row wrap;
+	justify-content: space-between;
+	column-count: 1;
+}
+
+.nav-link[aria-expanded="true"]{
+	background-color: #008497 !important;
+  color: #fff !important;
+}
+
+/* Home Page - Promoted Articles & Recent Activity */
+.promoted-articles, .recent-activity-list{
+ 	list-style-type: none;
+  padding: 0px;
+  margin-top: 20px;
+}
+
+.recent-activity-item-meta{
+  font-size: 12px;
+  color: #747679;
+}
+
+.recent-activity-item-comment{
+  display: none;
+}
+
+.recent-activity-loader{
+    display: inline-block;
+  	color: #fff;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: text-bottom;
+    border: 0.25em solid #008497;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-border .75s linear infinite;
+}
+
+/* Home Page - Recent Activity */
+.recent-activity-header{
+  font-size: 1.3125rem;
+}
+
+.recent-activity-item{
+  margin-bottom: 20px;
+}
+
+[data-recent-activity-seemore], .community-link{
+  padding: 0.625rem 1.25rem;
+  border: 0.0625rem solid #008497;
+  border-radius: 0.375rem;
+  background-color: white;
+  color: #008497;
+  text-transform: uppercase;
+  min-width: 10.4375rem;
+  line-height: 1;
+  display: block;
+  text-align: center;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+[data-recent-activity-seemore]:hover, .community-link:hover{
+  background: #008497;
+  border-color: #008497;
+  text-decoration: none;
+  color: #fff;
+}
+
+.recent-activity-item-parent{
+	font-family: "TT Norms Medium";
+  display: block;
+}
+
+/* Breadcrumbs*/
+.breadcrumbs{
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.breadcrumbs li a{
+  color: #008497;
+}
+
+.breadcrumbs li+li::before {
+    content: ">";
+    padding: 0 0.5rem;
+  color: #444;
+}
+
+
+/* subnav search */
+.nav-search{
+ 	width: 250px; 
+}
+
+/* Footer - Social Links */
+
+.social_links{
+ 	opacity: .7; 
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { }

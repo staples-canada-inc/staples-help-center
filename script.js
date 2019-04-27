@@ -110,32 +110,32 @@ document.addEventListener('DOMContentLoaded', function () {
 		toggleElement.setAttribute('aria-expanded', !isExpanded);
 	}
 
-	var burgerMenu = document.querySelector('.header .icon-menu');
-	var userMenu = document.querySelector('#user-nav');
+// var burgerMenu = document.querySelector('.header .icon-menu');
+// var userMenu = document.querySelector('#user-nav');
 
-	burgerMenu.addEventListener('click', function (e) {
-		e.stopPropagation();
-		toggleNavigation(this);
-	});
+// burgerMenu.addEventListener('click', function (e) {
+// 		e.stopPropagation();
+// 		toggleNavigation(this);
+// 	});
 
-	burgerMenu.addEventListener('keyup', function (e) {
-		if (e.keyCode === 13) { // Enter key
-			e.stopPropagation();
-			toggleNavigation(this);
-		}
-	});
+// 	burgerMenu.addEventListener('keyup', function (e) {
+// 		if (e.keyCode === 13) { // Enter key
+// 			e.stopPropagation();
+// 			toggleNavigation(this);
+// 		}
+// 	});
 
-	userMenu.addEventListener('keyup', function (e) {
-		if (e.keyCode === 27) { // Escape key
-			e.stopPropagation();
-			this.setAttribute('aria-expanded', false);
-			burgerMenu.setAttribute('aria-expanded', false);
-		}
-	});
+// userMenu.addEventListener('keyup', function (e) {
+// 	if (e.keyCode === 27) { // Escape key
+// 		e.stopPropagation();
+// 		this.setAttribute('aria-expanded', false);
+// 		burgerMenu.setAttribute('aria-expanded', false);
+// 	}
+// });
 
-	if (userMenu.children.length === 0) {
-		burgerMenu.style.display = 'none';
-	}
+// if (userMenu.children.length === 0) {
+// 	burgerMenu.style.display = 'none';
+// }
 
 	// Submit organization form in the request page
 	var requestOrganisationSelect = document.querySelector('#request-organization select');
@@ -156,8 +156,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
+
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip();
-	$('[data-toggle="tagsinput"]').tagsinput('items')
+	// $('[data-toggle="tagsinput"]').tagsinput('items');
+	$('.collapse').collapse();
+  $('.cat-0').addClass( 'active show' );
+});
 
-})
+
+

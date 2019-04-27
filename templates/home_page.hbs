@@ -1,47 +1,114 @@
 <div class="search-wrapper">
-	<div class="container">
-		<div class="row mb-5 py-5 justify-content-center">
-			{{search submit=false instant=settings.instant_search class='search search-full w-75 my-5'}}
-		</div>
-	</div>
+    <div class="container">
+        <div class="row mb-5 py-5 justify-content-center">
+            {{search submit=false instant=settings.instant_search class='search search-full w-75 my-5'}}
+        </div>
+    </div>
+</div>
+<div class="container py-5 my-5">
+    <div class="row">
+        <!-- Sidebar -->
+
+        <div class="col-4">
+            <!-- Category List-->
+            <div class="list-group list-group-flush" id="list-tab" role="tablist">
+                {{#each categories}}
+                <a class="list-group-item list-group-item-action cat-{{@index}}" data-toggle="list" href="#category-{{id}}" role="tab" aria-controls="#category-{{id}}">{{name}}</a>
+                {{/each}}
+            </div>
+            <!-- Promoted Articles -->
+            {{#if promoted_articles}}
+            <div class="articles mt-5">
+                <h4>{{dc 'popular_articles'}}</h4>
+
+                    {{#each promoted_articles}}
+              
+                <a href="{{url}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 text-secondary">{{excerpt title characters=60}}{{#if internal}}<span class="icon-lock" title="{{t 'internal'}}"></span>{{/if}}</h5>
+                  </div>
+                  <p class="text-small text-tertiary">{{excerpt body characters=100}}</p>
+  							</a>
+                    {{/each}}
+
+            </div>
+            {{/if}}
+        </div>
+
+        <!-- Main Content -->
+        <!-- Section / Article Lists -->
+        <div class="col-8">
+            <div class="tab-content">
+                <!-- Foreach category list the sections -->
+                {{#each categories}}
+                <div class="tab-pane fade cat-{{@index}}" id="category-{{id}}" role="tabpanel" aria-labelledby="#category-{{id}}">
+                    {{#each sections}}
+                    <!-- Display Section Name -->
+                    <h3>{{name}}</h3>
+                    <div class="section" id="section-{{id}}">
+                        <!-- Foreach section list the articles -->
+                        <ul class="list-unstyled mb-4">
+                            {{#each articles}}
+                            <li class="article mb-2"><a href="{{url}}">{{title}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container mb-5" id="knowledgeBase">
+  
+<div class="row mb-5 justify-content-center">
+  {{#each categories}}
+      <a class="btn btn-secondary mr-1 ml-0 mb-2 w-25" href="#{{id}}" data-toggle="collapse" aria-expanded="false" aria-controls="{{id}}">{{name}}</a>
+  {{/each}}
+  </div>
+  <div class="row justify-content-center w-80 m-auto">
+{{#each categories}}
+    <div class="" id="{{id}}" data-parent="#knowledgeBase">
+      <div class="sections flex-fill">
+      {{#each sections}}
+        <div class="section mb-4"><a href="{{url}}">{{name}}</a></div>
+    	{{/each}}
+      </div>
+    </div>
+{{/each}}
+  
+        {{#each categories}}
+      <div class="collapse" id="{{id}}" data-parent="#knowledgeBase">
+        <div class="sections flex-fill">
+        {{#each sections}}
+          <div class="section mb-4"><a href="{{url}}">{{name}}</a></div>
+        {{/each}}
+        </div>
+      </div>
+  {{/each}}
+    
+    </div>
+  
+  
+
+{{pagination}}
+
 </div>
 
 <div class="container">
-	<section class="section knowledge-base">
-		<section class="categories blocks">
-			<ul class="blocks-list">
-				{{#each categories}}
-				{{#if ../has_multiple_categories}}
-				<li class="blocks-item">
-					<a href='{{url}}' class="blocks-item-link">
-						<h4>{{name}}</h4>
-						<p class="blocks-item-description">{{excerpt description}}</p>
-					</a>
-				</li>
-				{{else}}
-				{{#each sections}}
-				<li class="blocks-item">
-					<a href='{{url}}' class="blocks-item-link">
-						<h4>{{name}}</h4>
-						<p class="blocks-item-description">{{excerpt description}}</p>
-					</a>
-				</li>
-				{{/each}}
-				{{/if}}
-				{{/each}}
-			</ul>
-			{{pagination}}
-		</section>
-
+  <div class="row">
+    
 		{{#if promoted_articles}}
-		<section class="articles">
-			<h3>{{t 'promoted_articles'}}</h3>
+		
+    <div class="col-md-4 articles border-md-right">
+			<h4>{{t 'promoted_articles'}}</h4>
 			<ul class="article-list promoted-articles">
 				{{#each promoted_articles}}
 				<li class="promoted-articles-item">
 					<a href="{{url}}">
 						{{title}}
-
 						{{#if internal}}
 						<span class="icon-lock" title="{{t 'internal'}}"></span>
 						{{/if}}
@@ -49,23 +116,24 @@
 				</li>
 				{{/each}}
 			</ul>
-		</section>
+		</div>
 		{{/if}}
-	</section>
 
-	{{#if help_center.community_enabled}}
-	<section class="section community">
-		<h2>{{t 'community'}}</h2>
-		{{#link 'community' class='community-link'}}
-		{{t 'join_conversation'}}
-		{{/link}}
-
-		<div class="community-image"></div>
-	</section>
-	{{/if}}
-
-	<section class="section activity">
+  <div class="col-md-4 activity border-right border-left">
 		{{#if settings.show_recent_activity}}
 		{{recent_activity}}
 		{{/if}}
-	</section>
+	</div>
+
+	{{#if help_center.community_enabled}}
+	<div class="col-md-4 community ">
+		<h4>{{t 'community'}}</h4>
+		{{#link 'community' class='community-link'}}
+		{{t 'join_conversation'}}
+		{{/link}}
+		<div class="community-image"></div>
+	</div>
+	{{/if}}
+    
+  </div>
+</div> -->
