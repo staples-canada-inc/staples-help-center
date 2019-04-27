@@ -194,6 +194,7 @@ The design system styles live in assets/staples_ds.css
 }
 
 /* Single Article */
+.article-vote::before,
 .vote-up::before,
 .vote-down::before {
     font-family: "copenhagen-icons";
