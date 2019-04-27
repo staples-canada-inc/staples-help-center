@@ -1,4 +1,5 @@
-<nav class="my-activities-nav collapsible-nav">
+<div class="container py-5 my-5">
+    <nav class="my-activities-nav collapsible-nav">
 	<ul class="collapsible-nav-list container">
 		{{#if help_center.request_management_enabled}}
 		<li>{{link 'requests'}}</li>
@@ -7,8 +8,6 @@
 		<li aria-selected=true>{{t 'following'}}</li>
 	</ul>
 </nav>
-
-<div class="container">
 	<header class="my-activities-header">
 		<h1>{{t 'following'}}</h1>
 	</header>

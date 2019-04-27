@@ -1,142 +1,139 @@
-<section class="section hero community-hero">
-	<div class="hero-inner">
-		{{search submit=false class='search search-full' scoped=settings.scoped_community_search}}
-	</div>
-</section>
+<div class="search-wrapper">
+    <div class="container">
+        <div class="row mb-5 py-5 justify-content-center">
+            {{search submit=false instant=settings.instant_search class='search search-full w-75 my-5'}}
+        </div>
+    </div>
+</div>
+<div class="container py-5 my-5">
+    <header class="page-header community-header">
+        <h4>
+            <span class="dropdown">
+                <btn btn-primary class="dropdown-toggle" aria-haspopup="true">
+                    {{t 'all_posts'}}
+                </btn btn-primary>
+                <span class="dropdown-menu" role="menu">
+                    {{#link 'topics' role='menuitem'}}
+                    {{t 'show_topics'}}
+                    {{/link}}
+                    {{#link 'posts' role='menuitem' selected='true'}}
+                    {{t 'show_all_posts'}}
+                    {{/link}}
+                </span>
+            </span>
+        </h4>
+        <span class="post-to-community">
+            {{link 'new_post' role='btn btn-primary' class='btn btn-primary'}}
+        </span>
+    </header>
 
-<div class="container">
-	<nav class="sub-nav">
-		{{breadcrumbs}}
-	</nav>
+    <div class="topic-header">
+        <span class="topic-filters">
+            <span class="dropdown">
+                <btn btn-primary class="dropdown-toggle" aria-haspopup="true">
+                    {{current_filter.label}}
+                </btn btn-primary>
+                <span class="dropdown-menu" role="menu">
+                    {{#each filters}}
+                    <a href="{{url}}" aria-selected="{{selected}}" role="menuitem">
+                        {{name}}
+                    </a>
+                    {{/each}}
+                </span>
+            </span>
+            <span class="dropdown">
+                <btn btn-primary class="dropdown-toggle" aria-haspopup="true">
+                    {{current_sorter.label}}
+                </btn btn-primary>
+                <span class="dropdown-menu" role="menu">
+                    {{#each sorters}}
+                    <a href="{{url}}" aria-selected="{{selected}}" role="menuitem">
+                        {{name}}
+                    </a>
+                    {{/each}}
+                </span>
+            </span>
+        </span>
+    </div>
 
-	<header class="page-header community-header">
-		<h4>
-			<span class="dropdown">
-				<btn btn-primary class="dropdown-toggle" aria-haspopup="true">
-					{{t 'all_posts'}}
-				</btn btn-primary>
-				<span class="dropdown-menu" role="menu">
-					{{#link 'topics' role='menuitem'}}
-					{{t 'show_topics'}}
-					{{/link}}
-					{{#link 'posts' role='menuitem' selected='true'}}
-					{{t 'show_all_posts'}}
-					{{/link}}
-				</span>
-			</span>
-		</h4>
-		<span class="post-to-community">
-			{{link 'new_post' role='btn btn-primary' class='btn btn-primary'}}
-		</span>
-	</header>
+    <ul class="posts-list striped-list">
+        {{#unless posts}}
+        <div class="no-posts-with-filter">
+            {{t 'no_posts_with_filter'}}
+        </div>
+        {{/unless}}
+        {{#each posts}}
+        <li>
+            <div class="striped-list-item {{#if featured}}post-featured{{/if}}">
+                <span class="striped-list-info">
+                    <a href="{{url}}" title="{{title}}" class="striped-list-title">{{title}}</a>
+                    <span class="post-overview-item">
+                        {{#if pinned}}
+                        <span class="status-label status-label-pinned">{{t 'pinned'}}</span>
+                        {{/if}}
 
-	<div class="topic-header">
-		<span class="topic-filters">
-			<span class="dropdown">
-				<btn btn-primary class="dropdown-toggle" aria-haspopup="true">
-					{{current_filter.label}}
-				</btn btn-primary>
-				<span class="dropdown-menu" role="menu">
-					{{#each filters}}
-					<a href="{{url}}" aria-selected="{{selected}}" role="menuitem">
-						{{name}}
-					</a>
-					{{/each}}
-				</span>
-			</span>
-			<span class="dropdown">
-				<btn btn-primary class="dropdown-toggle" aria-haspopup="true">
-					{{current_sorter.label}}
-				</btn btn-primary>
-				<span class="dropdown-menu" role="menu">
-					{{#each sorters}}
-					<a href="{{url}}" aria-selected="{{selected}}" role="menuitem">
-						{{name}}
-					</a>
-					{{/each}}
-				</span>
-			</span>
-		</span>
-	</div>
+                        {{#if featured}}
+                        <span class="status-label status-label-featured">{{t 'featured'}}</span>
+                        {{/if}}
 
-	<ul class="posts-list striped-list">
-		{{#unless posts}}
-		<div class="no-posts-with-filter">
-			{{t 'no_posts_with_filter'}}
-		</div>
-		{{/unless}}
-		{{#each posts}}
-		<li>
-			<div class="striped-list-item {{#if featured}}post-featured{{/if}}">
-				<span class="striped-list-info">
-					<a href="{{url}}" title="{{title}}" class="striped-list-title">{{title}}</a>
-					<span class="post-overview-item">
-						{{#if pinned}}
-						<span class="status-label status-label-pinned">{{t 'pinned'}}</span>
-						{{/if}}
+                        {{#is status 'none'}}
+                        {{else}}
+                        <span
+                            class="status-label-{{status_dasherized}} status-label striped-list-status">{{status_name}}</span>
+                        {{/is}}
+                    </span>
 
-						{{#if featured}}
-						<span class="status-label status-label-featured">{{t 'featured'}}</span>
-						{{/if}}
+                    <ul class="meta-group">
+                        <li class="meta-data">{{author.name}}</li>
+                        {{#if editor}}
+                        <li class="meta-data">{{date edited_at timeago=true}}</li>
+                        <li class="meta-data">{{t 'edited'}}</li>
+                        {{else}}
+                        <li class="meta-data">{{date created_at timeago=true}}</li>
+                        {{/if}}
+                    </ul>
+                </span>
 
-						{{#is status 'none'}}
-						{{else}}
-						<span
-							class="status-label-{{status_dasherized}} status-label striped-list-status">{{status_name}}</span>
-						{{/is}}
-					</span>
+                <div class="post-overview-count striped-list-count">
+                    <span class="striped-list-count-item">
+                        <span class="striped-list-number">{{vote_sum}}</span>
+                        {{t 'vote' count=vote_sum}}
+                    </span>
+                    <span class="striped-list-count-item">
+                        <span class="striped-list-number">{{comment_count}}</span>
+                        {{t 'comment' count=comment_count}}
+                    </span>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
 
-					<ul class="meta-group">
-						<li class="meta-data">{{author.name}}</li>
-						{{#if editor}}
-						<li class="meta-data">{{date edited_at timeago=true}}</li>
-						<li class="meta-data">{{t 'edited'}}</li>
-						{{else}}
-						<li class="meta-data">{{date created_at timeago=true}}</li>
-						{{/if}}
-					</ul>
-				</span>
+    {{pagination}}
 
-				<div class="post-overview-count striped-list-count">
-					<span class="striped-list-count-item">
-						<span class="striped-list-number">{{vote_sum}}</span>
-						{{t 'vote' count=vote_sum}}
-					</span>
-					<span class="striped-list-count-item">
-						<span class="striped-list-number">{{comment_count}}</span>
-						{{t 'comment' count=comment_count}}
-					</span>
-				</div>
-			</div>
-		</li>
-		{{/each}}
-	</ul>
+    {{#if featured_posts}}
+    <section class="section community-featured-posts">
+        <h3>{{t 'featured_posts'}}</h3>
+        <ul class="promoted-articles">
+            {{#each featured_posts}}
+            <li class="promoted-articles-item">
+                <a href="{{url}}">
+                    {{title}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </section>
+    {{/if}}
 
-	{{pagination}}
+    <section class="community-activity activity">
+        {{#if help_center.community_enabled}}
+        {{recent_activity scope='community'}}
+        {{/if}}
+    </section>
 
-	{{#if featured_posts}}
-	<section class="section community-featured-posts">
-		<h3>{{t 'featured_posts'}}</h3>
-		<ul class="promoted-articles">
-			{{#each featured_posts}}
-			<li class="promoted-articles-item">
-				<a href="{{url}}">
-					{{title}}
-				</a>
-			</li>
-			{{/each}}
-		</ul>
-	</section>
-	{{/if}}
-
-	<section class="community-activity activity">
-		{{#if help_center.community_enabled}}
-		{{recent_activity scope='community'}}
-		{{/if}}
-	</section>
-
-	<section class="container community-footer">
-		<h4>{{t 'suggest_new_post'}}</h4>
-		{{link 'new_post' role='btn btn-primary' class='btn btn-primary-large'}}
-	</section>
+    <section class="container community-footer">
+        <h4>{{t 'suggest_new_post'}}</h4>
+        {{link 'new_post' role='btn btn-primary' class='btn btn-primary-large'}}
+    </section>
 </div>

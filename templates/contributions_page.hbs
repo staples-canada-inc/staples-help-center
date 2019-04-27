@@ -1,14 +1,20 @@
-<nav class="my-activities-nav collapsible-nav">
-  <ul class="collapsible-nav-list container">
-    {{#if help_center.request_management_enabled}}
-      <li>{{link 'requests'}}</li>
-    {{/if}}
-    <li aria-selected=true>{{t 'contributions'}}</li>
-    <li>{{link 'subscriptions'}}</li>
-  </ul>
-</nav>
-
-<div class="container">
+<div class="search-wrapper">
+    <div class="container">
+        <div class="row mb-5 py-5 justify-content-center">
+            {{search submit=false instant=settings.instant_search class='search search-full w-75 my-5'}}
+        </div>
+    </div>
+</div>
+<div class="container py-5 my-5">
+    <nav class="my-activities-nav collapsible-nav">
+    <ul class="collapsible-nav-list container">
+        {{#if help_center.request_management_enabled}}
+        <li>{{link 'requests'}}</li>
+        {{/if}}
+        <li aria-selected=true>{{t 'contributions'}}</li>
+        <li>{{link 'subscriptions'}}</li>
+    </ul>
+    </nav>
   <header class="my-activities-header">
     <h1>{{t 'contributions'}}</h1>
     <nav class="my-activities-sub-nav collapsible-nav">
