@@ -193,17 +193,38 @@ The design system styles live in assets/staples_ds.css
     opacity: .7;
 }
 
+/* Single Article */
+.vote-up::before,
+.vote-down::before {
+    font-family: "copenhagen-icons";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    line-height: 1em;
+    vertical-align: middle;
+    -webkit-font-smoothing: antialiased;
+    content: "\2713";
+    font-size: 8px;
+    margin-right: 10px;
+}
+
+.article-vote::after {
+    content: attr(title);
+}
+
+.button::after,
+[role="button"]::after {
+    color: #fff;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {}
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (min-width: 768px) {}
 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
 
-
-    /* Large devices (desktops, 992px and up) */
-    @media (min-width: 992px) {}
-
-    /* Extra large devices (large desktops, 1200px and up) */
-    @media (min-width: 1200px) {}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
