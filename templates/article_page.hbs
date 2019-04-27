@@ -10,7 +10,7 @@
         </div>
     </div>
 </div>
-<div class="container my-5">
+<div class="container my-5" id="article-container">
     <div class="row">
         <!-- Sidebar -->
         <div class="col-12 col-md-4">
@@ -70,13 +70,13 @@
             </div>
             <div class="mt-4 py-4 border-top border-bottom text-center">
                 {{#with article}}
-                <h5 class="article-votes-question">{{t 'was_this_article_helpful'}}</h5>
                 <div class="article-votes">
+                    <h5 class="article-votes-question">{{t 'was_this_article_helpful'}}</h5>
                     <div class="article-votes-controls btn-group py-3" role='radiogroup'>
                         {{vote 'up' role="radio" class='button btn btn-secondary article-vote article-vote-up'}}
                         {{vote 'down' role="radio" class='button btn btn-secondary article-vote article-vote-down'}}
                     </div>
-                    <small class="text-small py-2 article-votes-count">
+                    <small class="article-votes-count text-small py-2">
                         {{vote 'label' class='article-vote-label'}}
                     </small>
                 </div>
