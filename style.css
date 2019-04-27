@@ -213,6 +213,10 @@ The design system styles live in assets/staples_ds.css
     content: attr(title);
 }
 
+.article-vote-down::before {
+    content: "\2715";
+}
+
 .button::after,
 [role="button"]::after {
     color: #fff;
