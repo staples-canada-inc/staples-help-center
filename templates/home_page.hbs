@@ -19,14 +19,14 @@
             {{#if promoted_articles}}
             <div class="articles mt-5">
                 <h4>{{dc 'popular_articles'}}</h4>
-                    {{#each promoted_articles}}
-                        <a href="{{url}}" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1 text-secondary">{{excerpt title characters=60}}{{#if internal}}<span class="icon-lock" title="{{t 'internal'}}"></span>{{/if}}</h5>
-                            </div>
-                            <p class="text-small text-tertiary">{{excerpt body characters=100}}</p>
-  						</a>
-                    {{/each}}
+                {{#each promoted_articles}}
+                <a href="{{url}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 text-secondary">{{excerpt title characters=60}}{{#if internal}}<span class="icon-lock" title="{{t 'internal'}}"></span>{{/if}}</h5>
+                    </div>
+                    <p class="text-small text-tertiary">{{excerpt body characters=100}}</p>
+                </a>
+                {{/each}}
             </div>
             {{/if}}
         </div>

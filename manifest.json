@@ -1,7 +1,7 @@
 {
 	"name": "Staples",
 	"author": "Staples Canada",
-	"version": "1.6.0",
+	"version": "1.7.0",
 	"api_version": 1,
 	"default_locale": "en-us",
 	"settings": [

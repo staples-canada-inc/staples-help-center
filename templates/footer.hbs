@@ -39,23 +39,23 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                          <a href="#" class="dropdown-toggle nav-link">
-                            {{#is current_locale.name 'English (US)'}}
-                              English
-                            {{else}}
-                              {{current_locale.name}}
-                            {{/is}}
+                            <a href="#" class="dropdown-toggle nav-link">
+                                {{#is current_locale.name 'English (US)'}}
+                                English
+                                {{else}}
+                                {{current_locale.name}}
+                                {{/is}}
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" role="menu">
-                            {{#each alternative_locales}}
-                              <a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">
-                              {{#is name 'English (US)'}}
-                                English
-                              {{else}}
-                                {{name}}
-                              {{/is}}
-                              </a>
-                            {{/each}}
+                                {{#each alternative_locales}}
+                                <a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">
+                                    {{#is name 'English (US)'}}
+                                    English
+                                    {{else}}
+                                    {{name}}
+                                    {{/is}}
+                                </a>
+                                {{/each}}
                             </div>
                         </li>
                     </ul>
@@ -68,11 +68,12 @@
 <div class="container py-4">
     <div class="row flex-wrap flex-md-nowrap justify-content-md-between">
         <div class="flex-md-shrink-1 text-center text-md-left text-small pt-3">
-            ©<script>
-                    document.write((new Date()).getFullYear())
-                </script>.
-                Staples Canada ULC, All Rights Reserved. This Website is intended only for use by Canadian residents. See our <a href="https://staplescanada.zendesk.com/hc/en-us/articles/360022447212-Delivery-Policy" class="">Delivery Policy</a> for full details.
-            
+            ©
+            <script>
+                document.write((new Date()).getFullYear())
+            </script>.
+            Staples Canada ULC, All Rights Reserved. This Website is intended only for use by Canadian residents. See our <a href="https://staplescanada.zendesk.com/hc/en-us/articles/360022447212-Delivery-Policy" class="">Delivery Policy</a> for full details.
+
         </div>
         <div class="social_links flex-grow-1 flex-md-grow-0 flex-md-shrink-0 text-center text-md-left">
             <ul class="nav justify-content-center justify-content-md-end">
