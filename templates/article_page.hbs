@@ -70,15 +70,16 @@
             </div>
             <div class="mt-4 py-4 border-top border-bottom text-center">
                 {{#with article}}
-                <h5>{{t 'was_this_article_helpful'}}</h5>
-                <div class="btn-group article-votes-controls py-3" role='group'>
-                    {{vote 'up' type="button" class='btn btn-secondary article-vote article-vote-up'}}
-                    {{vote 'down' type="botton" class='btn btn-secondary article-vote article-vote-down'}}
+                <h5 class="article-votes-question">{{t 'was_this_article_helpful'}}</h5>
+                <div class="article-votes">
+                    <div class="article-votes-controls btn-group py-3" role='radiogroup'>
+                        {{vote 'up' role="radio" class='button btn btn-secondary article-vote article-vote-up'}}
+                        {{vote 'down' role="radio" class='button btn btn-secondary article-vote article-vote-down'}}
+                    </div>
+                    <small class="text-small py-2 article-votes-count">
+                        {{vote 'label' class='article-vote-label'}}
+                    </small>
                 </div>
-                <p class="text-small">
-                    {{vote 'label' class='article-vote-label'}}
-                </p>
-
                 {{/with}}
 
                 <p> {{request_callout}}</p>
