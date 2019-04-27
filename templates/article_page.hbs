@@ -1,7 +1,7 @@
 <div class="bg-lightest-grey py-3 mb-5 ">
     <div class="container">
         <div class="row justify-content-between align-items-center">
-            <div class="col-12 col-md-9 mb-3 mb-md-0">
+            <div class="col-12 col-md-9 mb-3 mb-md-0 small">
                 {{breadcrumbs}}
             </div>
             <div class="col-12 col-md-3">
@@ -31,7 +31,7 @@
             {{/if}}
         </div>
         <div class="col-12 col-md-8">
-            <h1 title="{{article.title}}" class="article-title">
+            <h1 title="{{article.title}}" class="article-title h2">
                 {{article.title}}
                 {{#if article.internal}}
                 <span class="icon-lock" title="{{t 'internal'}}"></span>
@@ -76,9 +76,11 @@
                         {{vote 'up' role="radio" class='btn btn-secondary article-vote article-vote-up'}}
                         {{vote 'down' role="radio" class='btn btn-secondary article-vote article-vote-down'}}
                     </div>
-                    <small class="article-votes-count text-small py-2">
-                        {{vote 'label' class='article-vote-label'}}
-                    </small>
+                    <p>
+                        <small class="article-votes-count text-small py-2">
+                            {{vote 'label' class='article-vote-label'}}
+                        </small>
+                    </p>
                 </div>
                 {{/with}}
 

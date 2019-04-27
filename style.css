@@ -222,6 +222,13 @@ The design system styles live in assets/staples_ds.css
     color: #fff;
 }
 
+.article-vote[aria-selected="true"] {
+    color: #fff;
+    background-color: #005764;
+    border-color: #004c57;
+}
+
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {}
 
